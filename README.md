@@ -43,8 +43,8 @@ Response:
 ```
 POST /events
 ```
-Request Body (multipart/form-data):
-![table2](image-1.png)
+> Request Body (multipart/form-data):
+![table 2](image-1.png)
 
 Response:
 
