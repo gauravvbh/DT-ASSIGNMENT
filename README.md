@@ -26,7 +26,8 @@ GET /events
 ```
 
 > Query Parameters:
-![table 1](image.png)
+>
+> ![table 1](image.png)
 
 
 Response:
@@ -44,6 +45,7 @@ Response:
 POST /events
 ```
 > Request Body (multipart/form-data):
+> 
 > ![table 2](image-1.png)
 
 Response:
