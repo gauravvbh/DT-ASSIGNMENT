@@ -21,8 +21,28 @@ npm install
 npm start
 ```
 
+## Data Model
+**Nudge/Event Object**
 
-**API Endpoints**
+```
+{
+  "id": "string",                  // Unique identifier for the nudge
+  "tag": "string",                 // Tag for the associated event/article
+  "title": "string",               // Title of the nudge (max 60 characters)
+  "image_url": "string",           // URL of the uploaded cover image
+  "scheduled_date": "string",      // Date for the nudge (format: dd/mm/yyyy)
+  "start_time": "string",          // Start time for the nudge (format: hh:mm)
+  "end_time": "string",            // End time for the nudge (format: hh:mm)
+  "description": "string",         // Description of the nudge
+  "icon": "string",                // Icon associated with the minimized nudge
+  "invitation": "string"           // One-line invitation (e.g., "Check out this workshop!")
+}
+
+```
+
+
+## API Endpoints
+
 ### 1. Get Events
 ```
 GET /events
@@ -91,7 +111,8 @@ Response:
 
 -```500 Internal Server Error:``` Error deleting event.
 
-# Error Handling
+## Error Handling
+
 Error Handling
 ```
 {
@@ -100,12 +121,14 @@ Error Handling
 }
 ```
 
-# Database
+## Database
+
 -MongoDB is used as the database.
 
 -Collection: ```events```
 
-# Technologies Used
+## Technologies Used
+
 -Node.js
 
 -Express.js
@@ -113,11 +136,3 @@ Error Handling
 -MongoDB
 
 -Multer (for file uploads)
-
-
-
-
-
-
-
-
