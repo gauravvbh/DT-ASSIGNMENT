@@ -44,6 +44,7 @@ Response:
 POST /events
 ```
 > Request Body (multipart/form-data):
+> 
 > ![table 2](image-1.png)
 
 Response:
