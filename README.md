@@ -20,6 +20,8 @@ npm install
 ```
 npm start
 ```
+
+
 **API Endpoints**
 ### 1. Get Events
 ```
