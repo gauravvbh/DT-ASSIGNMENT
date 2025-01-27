@@ -1,59 +1,114 @@
-# API Documentation: Nudge Creation
+# **Event Management API**
 
-This document provides detailed information about the API used to create and manage nudges for events.
+## Overview
 
-## Base URL
+This API provides functionalities to manage events, including creating, retrieving, updating, and deleting event records.
 
+**Installation**
+1. Clone the repository:
+```
+git clone <repository_url>
+```
 
+2. Install dependencies:
+```
+npm install
+```
 
-## API Endpoints
+3. Start the server:
+```
+npm start
+```
+**API Endpoints**
+### 1. Get Events
+```
+GET /events
+```
 
-### 1. Create Nudge
-**Endpoint**: `/nudges`  
-**Method**: `POST`  
-**Description**: This endpoint allows the user to create a nudge for an event, including title, image, time, description, icon, and invitation.
+> Query Parameters:
+![table 1](image.png)
 
-#### Request Payload:
-```json
-{
-  "event_id": "string",
-  "title": "string",
-  "cover_image": "string (base64 or image URL)",
-  "send_time": "string (ISO 8601 format)",
-  "description": "string",
-  "icon": "string (image URL or icon identifier)",
-  "invitation_text": "string"
-}
 
 Response:
-Status: 201 Created
-Body:
+-```200 OK:``` Event(s) retrieved successfully.
 
-{
-  "nudge_id": "string",
-  "message": "Nudge successfully created"
-}
+-```404 Not Found:``` No event found.
 
+-```400 Bad Request:``` Invalid query parameters.
 
-2. Get Nudge Details
-Endpoint: /nudges/{nudge_id}
-Method: GET
-Description: This endpoint fetches the details of a specific nudge by nudge_id.
+-```500 Internal Server Error:``` Error retrieving events.
+
+### 2. Create Event
+```
+POST /events
+```
+Request Body (multipart/form-data):
+![table2](image-1.png)
 
 Response:
-Status: 200 OK
-Body:
+-```200 Created:``` Event created successfully.
 
+-```400 Bad Request:``` Missing required fields or no image uploaded.
+
+-```500 Internal Server Error:``` Error creating event.
+
+### 3. Update Event
+Endpoint:
+```
+PUT /events/:id
+```
+Request Body (multipart/form-data): (Same fields as Create Event)
+
+Response:
+-```200 Ok:```  Event updated successfully.
+
+-```400 Not Found:``` : Event not found.
+
+-```400 Bad Request:``` Missing required fields or invalid ID.
+
+-```500 Internal Server Error:``` Error updating event.
+
+### 4. Delete Event
+Endpoint:
+```
+DELETE /events/:id
+```
+Response:
+-```200 OK:``` Event deleted successfully.
+
+-```404 Not Found:``` Event not found.
+
+-```400 Bad Request:``` Invalid ID.
+
+-```500 Internal Server Error:``` Error deleting event.
+
+# Error Handling
+Error Handling
+```
 {
-  "nudge_id": "string",
-  "event_id": "string",
-  "title": "string",
-  "cover_image": "string (image URL)",
-  "send_time": "string (ISO 8601 format)",
-  "description": "string",
-  "icon": "string (image URL or icon identifier)",
-  "invitation_text": "string"
+  "error": "Error message",
+  "details": "Detailed error information"
 }
+```
+
+# Database
+-MongoDB is used as the database.
+
+-Collection: ```events```
+
+# Technologies Used
+-Node.js
+
+-Express.js
+
+-MongoDB
+
+-Multer (for file uploads)
+
+
+
+
+
 
 
 
